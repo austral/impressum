@@ -7,10 +7,15 @@
   :description "impressum tests.")
 (in-suite tests)
 
-(test simple-test
-  (is
-   (equal 1 1))
-  (is-true
-   (and t t)))
+(test cl-types
+  (macrolet ((is-component (object)
+               `(is
+                 (typep (impressum:print-object ,object) 'impressum:component))))
+    (is-component 1)
+    (is-component 3.14)
+    (is-component #\a)
+    (is-component "test")
+    (is-component 'a)
+    (is-component :a)))
 
 (run! 'tests)

@@ -4,6 +4,8 @@
   (:shadow :print-object :print)
   (:import-from :trivial-types
                 :proper-list)
+  ;; Components
+  (:export :component)
   ;; Component constructors
   (:export :make-text
            :make-group

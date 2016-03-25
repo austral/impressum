@@ -59,6 +59,16 @@ component, e.g. 'group' or 'tooltip'."
        (:div :class "context-extra"
          (render-html (extra component) stream))))))
 
+(defmethod render-html ((component more) stream)
+  "Render a more component."
+  (who:with-html-output (stream)
+    (who:htm
+     (:div :class (tags-to-class "more" component)
+       (:div :class "brief"
+         (render-html (brief component) stream))
+       (:div :class "full"
+         (render-html (full component) stream))))))
+
 (defun print-html (component stream)
   "Print a component to a stream as HTML."
   (who:with-html-output (stream)

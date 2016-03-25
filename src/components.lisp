@@ -69,6 +69,18 @@
           :documentation "The component with the extra information."))
   (:documentation "Represents a component that has extra contextual information."))
 
+(defclass more (component)
+  ((brief :reader brief
+          :initarg :brief
+          :type component
+          :documentation "The brief representation of an object.")
+   (full :reader full
+         :initarg :full
+         :type component
+         :documentation "The full representation of an object."))
+  (:documentation "This component shows the brief representation of an object,
+  but gives the user a choice to expand it to the full representation."))
+
 ;;; Constructors
 
 (defun make-text (text &key tags)

@@ -14,7 +14,8 @@
                 ((:file "package")
                  (:file "components")
                  (:file "html")
-                 (:file "print"))))
+                 (:file "print")
+                 (:file "cl"))))
   :description "An interactive printer."
   :long-description
   #.(uiop:read-file-string
